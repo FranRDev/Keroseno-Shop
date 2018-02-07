@@ -1,5 +1,0 @@
-﻿Nombre bd: TIENDA --> id3542677_tienda
-
-Usuario: admin --> id3542677_admin
-
-Contraseña: 123456
