@@ -28,4 +28,7 @@
         .error {
             color: crimson;
         }
+        .header-center {
+            text-align:center;
+        }
     </style>

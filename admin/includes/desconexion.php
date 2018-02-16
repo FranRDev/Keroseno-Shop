@@ -3,22 +3,22 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Vas a salir? :(</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Vas a salir? 🙁</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Selecciona "Cancelar" si lo has reconsiderado y quieres quedarte... :)
+                    Selecciona "Cancelar" si lo has reconsiderado y quieres quedarte... 😜
                     
                 </div>
                 <div class="modal-body">
                     Selecciona "Desconectar" para cerrar la sesión actual.<br>
-                    Y... Bueno... Espero que nos veamos pronto... ^^
+                    Y... Bueno... Espero que nos veamos pronto... 🙃
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="identificacion.php">Desconectar</a>
+                    <a class="btn btn-primary" href="desconectar.php">Desconectar</a>
                 </div>
             </div>
         </div>

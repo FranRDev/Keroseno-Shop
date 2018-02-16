@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: formulario_identificacion.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 

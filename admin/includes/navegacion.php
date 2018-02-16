@@ -86,6 +86,15 @@
                     </a>
                 </li>
                 <!--------------------------- Fin visitar página ----------------------------->
+                
+                <!----------------------------- Registrar admin ------------------------------->
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar admin">
+                    <a class="nav-link" href="registro_admin.php">
+                        <i class="fa fa-user-plus"></i>
+                        <span class="nav-link-text">Registrar admin</span>
+                    </a>
+                </li>
+                <!--------------------------- Fin registrar admin ----------------------------->
 
             </ul>
             <!------------------ Fin barra vertical ------------------->
@@ -102,25 +111,19 @@
 
             <ul class="navbar-nav ml-auto">
 
-                <!---- Botón buscar ---->
+                <!---- Usuario ---->
                 <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Buscar...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
+                    <span class="navbar-text">
+                        <i class="fa fa-user"></i> <?php echo $_SESSION['admin'] ?>
+                    </span>
                 </li>
-                <!-- Fin botón buscar -->
+                <!-- Fin usuario -->
 
                 <!---- Botón desconectarse ---->
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fa fa-fw fa-sign-out"></i>Desconectarse</a>
+                        <i class="fa fa-fw fa-sign-out"></i>Desconectarse
+                    </a>
                 </li>
                 <!-- Fin botón desconectarse -->
 
