@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 10-12-2017 a las 17:23:45
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.0.8
+-- Tiempo de generación: 17-02-2018 a las 21:09:02
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `id3542677_tienda`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ADMIN`
+--
+
+CREATE TABLE `ADMIN` (
+  `ID` int(11) NOT NULL,
+  `NOMBRE` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `CORREO` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `CLAVE` varchar(300) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ADMIN`
+--
+
+INSERT INTO `ADMIN` (`ID`, `NOMBRE`, `CORREO`, `CLAVE`) VALUES
+(1, 'Administrador', 'admin@admin', '$2y$10$h8tjxLGyJj.xCUrLvS3MW.gql11oobXOvpt2mayD9j1InlMHTwQg6'),
+(3, 'Orlando Soldán Pozo', 'orlando.soldan@iescrostobaldemonroy.net', '$2y$10$UnM4X42LJZCdzfQq0/KqFelFRpDtDV3KL66vzXFMih7UI9Ksw/iHW');
 
 -- --------------------------------------------------------
 
@@ -45,7 +66,9 @@ CREATE TABLE `ARTICULO` (
 INSERT INTO `ARTICULO` (`ID`, `NOMBRE`, `FOTO`, `STOCK`, `PRECIO`, `DESCRIPCION`, `ID_SUBFAMILIA`) VALUES
 (1, 'Metrópolis (1927) (DE) (Fritz Lang)', '20171210171811_metropolis.jpg', 200, 5.85, 'Futuro, año 2000. En la megalópolis de Metrópolis la sociedad se divide en dos clases, los ricos que tienen el poder y los medios de producción, rodeados de lujos, espacios amplios y jardines, y los obreros, condenados a vivir en condiciones dramáticas recluidos en un gueto subterráneo, donde se encuentra el corazón industrial de la ciudad. Un día Freder (Alfred Abel), el hijo del todoperoso Joh Fredersen (Gustav Frohlich), el hombre que controla la ciudad, descubre los duros aspectos laborales de los obreros tras enamorarse de María (Brigitte Helm), una muchacha de origen humilde, venerada por las clases bajas y que predica los buenos sentimientos y al amor. El hijo entonces advierte a su padre que los trabajadores podrían rebelarse.', 1),
 (2, 'Mejor... imposible (1997) (US) (James L. Brooks)', '20171210171851_mejor imposible.jpg', 3000, 7.25, 'Melvin Udall (Jack Nicholson), un escritor maniático que padece un trastorno obsesivo-compulsivo, es el ser más desagradable y desagradecido que uno pueda tener como vecino en Nueva York. Entre sus rutinas está la de comer todos los días en una cafetería, donde le sirve Carol Connelly (Helen Hunt), camarera y madre soltera. Simon Nye (Greg Kinnear), un artista gay que vive en el apartamento contiguo al de Melvin, sufre constantemente su homofobia. De repente, un buen día, Melvin tiene que hacerse cargo de un pequeño perro aunque detesta los animales. La compañía del animal contribuirá a suavizar su carácter.', 2),
-(3, 'El padrino (1972) (US) (Francis Ford Coppola)', '20171210171905_el_padrino.jpg', 1000, 6, 'América, años 40. Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Fredo (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a participar en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.', 3);
+(3, 'El padrino (1972) (US) (Francis Ford Coppola)', '20171210171905_el_padrino.jpg', 1000, 6, 'América, años 40. Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Fredo (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a participar en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.', 3),
+(4, 'Testigo de cargo (1957) (US) (Billy Wilder)', '20171211094602_testigo_de_cargo.jpg', 5, 20.99, 'Leonard Vole (Tyrone Power), un hombre joven y atractivo, es acusado del asesinato de la señora French, una rica anciana con quien mantenía una relacion de carácter amistoso. El presunto móvil del crimen era la posibilidad de heredar los bienes de la difunta. A pesar de que las pruebas en su contra son demoledoras, Sir Wilfrid Roberts (Charles Laughton), un prestigioso abogado criminalista londinense, se hace cargo de su defensa.', 8),
+(5, 'Wind River (2017) (US) (Taylor Sheridan)', '20180217142426_wind_river-870274639-large.jpg', 5000, 10, 'Una joven agente del FBI se alía con un veterano rastreador local para investigar el asesinato de una joven ocurrido en una reserva de nativos americanos... ', 1);
 
 -- --------------------------------------------------------
 
@@ -85,7 +108,10 @@ INSERT INTO `FAMILIA` (`ID`, `DESCRIPCION`) VALUES
 (8, 'Musical'),
 (9, 'Melodrama'),
 (10, 'Suspense'),
-(24, 'Histórico');
+(24, 'Histórico'),
+(25, 'Intriga'),
+(27, 'Serie de TV'),
+(28, 'Western');
 
 -- --------------------------------------------------------
 
@@ -121,7 +147,9 @@ INSERT INTO `SUBFAMILIA` (`ID`, `DESCRIPCION`, `ID_FAMILIA`) VALUES
 (2, 'Comedia romántica', 2),
 (3, 'Mafia', 3),
 (4, 'Slasher', 6),
-(7, 'Superhéroes', 4);
+(7, 'Superhéroes', 4),
+(8, 'Drama judicial', 3),
+(9, 'Venganza', 28);
 
 -- --------------------------------------------------------
 
@@ -144,18 +172,20 @@ CREATE TABLE `USUARIO` (
 --
 
 INSERT INTO `USUARIO` (`ID`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `PROVINCIA`, `CORREO`, `CLAVE`) VALUES
-(1, 'dfghaeth', 'etheth', 'aeryheh', 'aethteh', 'aethaeth@sgerf', '$2y$10$thpNJKzC.GdgDq1ZlFzm0uvKC.CAC3qpsKGglDqBziA3WqphzYJZW'),
-(3, 'Prueba', 'Prueba', 'Prueba', 'Prueba', 'prueba@prueba', '$2y$10$BtRGMGIZv2TftXia6fw9fOfjFAqBye/1US0yKJjQ2ENgCNNZ.XS26'),
-(5, 'Prueba', 'Prueba', 'Prueba', 'Prueba', 'prueba@prueba2', '$2y$10$.xVermdgLNrOXbtgq3nGBeWs0Tpz05/1XB6cm3TG1pVkcvxXmxFne'),
-(6, 'Prueba', 'Prueba', 'Prueba', 'Prueba', 'prueba@prueba3', '$2y$10$C1o/ZcjRG5E/D8hFhdS5/ObJSGa2dp32eVScXJ8wsvD.LHaoL3Diy'),
-(7, 'fj', 'dtytyh', 'rthrth', 'drthrth', 'sdthth@sdffdsg', '$2y$10$WT8Piiq/cEKYToWbhiaSz.zVb2HVuxEAXxKd1.OkHJDpDji9LuD/a'),
-(8, 'PEPE', 'Pepito', 'Pepe', 'Pepito', 'pepe@pepe.com', '$2y$10$5Z7xMXmmH.EfTPc/1HECoO/4y/H3oP961z05mMgtVFIKxParDdKum'),
-(9, 'prueba', 'sfgzg', 'kbkhv', 'kbvhv', 'hvkhsgg@fdsgfdh.com', '$2y$10$eJVKuFTKXAXjf7f3sEwG3.mdP7PVjLvLpc9a8k/FxCs7GWOzrMwk6'),
-(10, 'Abel', 'Puertas Marquez', 'Calle Holanda, 2. ESC3. 3C', 'Sevilla', 'puertas.abel@gmail.com', '$2y$10$fHAaftHmgB/kVo/XYgaXcu.8xjD/AGT.M1fGGtMCCjiaHrb/1iyCi');
+(1, 'sfgfsg', 'fg', 'xcfv', 'cxv', 'xcv@dfg', '$2y$10$j80yXsM0cc0YutTKVs51o.jR0XizWX/cMZcY/fz4IPMlWF6KTiyve'),
+(5, 'prueba', 'prueba', 'prueba', 'prueba', 'prueba@prueba', '$2y$10$jvUi/bNFOWWUbV8MGFJ4yODSLEsBFRShp.YnOoVjJnD/Ncx4kzcvC'),
+(6, 'dsagf', 'sdfg', 'sdg', 'sdg', 'sdg@sdg', '$2y$10$sXDOELqOT0FGEvCo2qq/Uuw9axx02P1hXC5azuPKgriXHCTtU7Biy');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `ADMIN`
+--
+ALTER TABLE `ADMIN`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `CORREO` (`CORREO`);
 
 --
 -- Indices de la tabla `ARTICULO`
@@ -203,10 +233,16 @@ ALTER TABLE `USUARIO`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `ADMIN`
+--
+ALTER TABLE `ADMIN`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `ARTICULO`
 --
 ALTER TABLE `ARTICULO`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `FACTURA`
@@ -218,7 +254,7 @@ ALTER TABLE `FACTURA`
 -- AUTO_INCREMENT de la tabla `FAMILIA`
 --
 ALTER TABLE `FAMILIA`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `LINEA`
@@ -230,13 +266,13 @@ ALTER TABLE `LINEA`
 -- AUTO_INCREMENT de la tabla `SUBFAMILIA`
 --
 ALTER TABLE `SUBFAMILIA`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIO`
 --
 ALTER TABLE `USUARIO`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

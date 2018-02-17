@@ -150,3 +150,56 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#formulario_anhadir_familia").validate({
+                rules: {
+                    descripcion: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 300
+                    }
+                },
+                messages: {
+                    descripcion: {
+                        required: "Debe introducir la descripción de la familia.",
+                        minlength: jQuery.validator.format("Introduce al menos {0} caracter."),
+                        maxlength: jQuery.validator.format("No introduzcas más de {0} caracteres.")
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#formulario_anhadir_subfamilia").validate({
+                rules: {
+                    descripcion: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 1000
+                    },
+                    familia: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 11,
+                        number: true
+                    }
+                },
+                messages: {
+                    descripcion: {
+                        required: "Debe introducir la descripción de la subfamilia.",
+                        minlength: jQuery.validator.format("Introduce al menos {0} caracter."),
+                        maxlength: jQuery.validator.format("No introduzcas más de {0} caracteres.")
+                    },
+                    familia: {
+                        required: "Debe seleccionar una familia.",
+                        minlength: jQuery.validator.format(" Introduce al menos {0} caracter."),
+                        maxlength: jQuery.validator.format(" No introduzcas más de {0} caracteres.")
+                    }
+                }
+            });
+        });
+    </script>

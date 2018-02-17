@@ -79,6 +79,9 @@ session_start();
                         // Si hay resultado.
                         if ($resultado) {
                             
+                            $numeroRegistros=mysqli_num_rows($res);
+                            if ($numeroRegistros <=0 ) {
+                            
                             // Mientras haya filas.
                             while ($fila = mysqli_fetch_row($resultado)) {
                                 $id = $fila[0];
@@ -163,6 +166,12 @@ session_start();
                                 </div>
                                 <?php
                             }
+                                
+                            mysqli_free_result($resultado); 
+                            mysqli_close($consulta);
+                            
+                        } else {
+                            
                         }
                     }
                     ?>

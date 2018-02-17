@@ -40,16 +40,16 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="familia.php?sec="><i class="fa fa-fw fa-list"></i>Listar</a>
+                            <a href="familia.php?sec=0"><i class="fa fa-fw fa-list"></i>Listar</a>
                         </li>
                         <li>
-                            <a href="familia.php?sec="><i class="fa fa-fw fa-file-pdf-o"></i>Listar PDF</a>
+                            <a href="listar_familias_pdf.php"><i class="fa fa-fw fa-file-pdf-o"></i>Listar PDF</a>
                         </li>
                         <li>
-                            <a href="familia.php?sec="><i class="fa fa-fw fa-plus"></i>Añadir</a>
+                            <a href="familia.php?sec=1"><i class="fa fa-fw fa-plus"></i>Añadir</a>
                         </li>
                         <li>
-                            <a href="familia.php?sec="><i class="fa fa-fw fa-edit"></i>Modificar</a>
+                            <a href="familia.php?sec=3"><i class="fa fa-fw fa-edit"></i>Modificar</a>
                         </li>
                     </ul>
                 </li>
@@ -63,16 +63,16 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="subfamilia.php?sec="><i class="fa fa-fw fa-list"></i>Listar</a>
+                            <a href="subfamilia.php?sec=0"><i class="fa fa-fw fa-list"></i>Listar</a>
                         </li>
                         <li>
-                            <a href="subfamilia.php?sec="><i class="fa fa-fw fa-file-pdf-o"></i>Listar PDF</a>
+                            <a href="listar_subfamilias_pdf.php"><i class="fa fa-fw fa-file-pdf-o"></i>Listar PDF</a>
                         </li>
                         <li>
-                            <a href="subfamilia.php?sec="><i class="fa fa-fw fa-plus"></i>Añadir</a>
+                            <a href="subfamilia.php?sec=1"><i class="fa fa-fw fa-plus"></i>Añadir</a>
                         </li>
                         <li>
-                            <a href="subfamilia.php?sec="><i class="fa fa-fw fa-edit"></i>Modificar</a>
+                            <a href="subfamilia.php?sec=3"><i class="fa fa-fw fa-edit"></i>Modificar</a>
                         </li>
                     </ul>
                 </li>

@@ -1,10 +1,10 @@
 <?php
-require('./fpdf/fpdf.php');
+require('res/fpdf/fpdf.php');
 
 class PDF extends FPDF {
     // Cabecera de página
     function Header() {
-        $title = "Keroseno Shop - Tu tienda de cine online";
+        $title = "Keroseno Shop - Tu tienda de cine y series online";
 
         // Arial bold 15
         $this->SetFont('Arial','B',15);

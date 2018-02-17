@@ -15,7 +15,7 @@
             // Si hay error de conexión.
             if (!mysqli_connect_errno()) {
                 // Se obtienen todas las familias.
-                $consulta = "SELECT DESCRIPCION FROM FAMILIA";
+                $consulta = "SELECT ID, DESCRIPCION FROM FAMILIA";
                 $resultado = mysqli_query($enlace, $consulta);
 
                 // Si hay resultado.
@@ -26,7 +26,7 @@
 
                         // Se imprime la fila.
                         ?>
-                        <a href="#" class="list-group-item"><?php echo $fila[0] ?></a>
+                        <a href="busqueda_genero.php?genero=<?php echo $fila[0] ?>" class="list-group-item"><?php echo $fila[1] ?></a>
                         <?php
                     }
                 }

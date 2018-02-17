@@ -1,5 +1,5 @@
 <!-- Pie -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark mt-5">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Keroseno Shop 2017-2018</p>
             <p class="m-0 text-center text-white">Proyecto académico de Francisco Rodríguez García para DIWEB - 2º DAM</p>

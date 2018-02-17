@@ -1,6 +1,7 @@
 <!-- JavaScript -->
     <script src="res/jquery/jquery.min.js"></script>
     <script src="res/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="res/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Título en movimiento -->
     <script>
@@ -58,10 +59,10 @@
                 }
             }
             // INJECT CSS
-            //var css = document.createElement("style");
-            //css.type = "text/css";
-            //css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-            //document.body.appendChild(css);
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
         };
     </script>
 

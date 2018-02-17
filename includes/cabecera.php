@@ -55,4 +55,7 @@
             padding: 2rem 1.5rem;
             text-align: center;
         }
+        .titulo_busqueda {
+            padding-top: 28px;
+        }
     </style>
