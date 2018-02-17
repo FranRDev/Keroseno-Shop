@@ -20,7 +20,7 @@
                             <a href="articulo.php?sec=0"><i class="fa fa-fw fa-list"></i>Listar</a>
                         </li>
                         <li>
-                            <a href="articulo/listar_articulos_pdf.php"><i class="fa fa-fw fa-file-pdf-o" target="_blank"></i>Listar PDF</a>
+                            <a href="listar_articulos_pdf.php"><i class="fa fa-fw fa-file-pdf-o" target="_blank"></i>Listar PDF</a>
                         </li>
                         <li>
                             <a href="articulo.php?sec=1"><i class="fa fa-fw fa-plus"></i>Añadir</a>
@@ -89,7 +89,7 @@
                 
                 <!----------------------------- Registrar admin ------------------------------->
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar admin">
-                    <a class="nav-link" href="registro_admin.php">
+                    <a class="nav-link" href="registro_admin.php?sec=0">
                         <i class="fa fa-user-plus"></i>
                         <span class="nav-link-text">Registrar admin</span>
                     </a>
@@ -114,7 +114,7 @@
                 <!---- Usuario ---->
                 <li class="nav-item">
                     <span class="navbar-text">
-                        <i class="fa fa-user"></i> <?php echo $_SESSION['admin'] ?>
+                        <i class="fa fa-user-secret"></i> <?php echo $_SESSION['admin'] ?>
                     </span>
                 </li>
                 <!-- Fin usuario -->

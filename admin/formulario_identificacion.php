@@ -32,7 +32,7 @@
                     if ($_GET["var"] == 1) {
                         ?>
                         <div class="alert alert-danger">
-                            No existe ningún usuario con ese correo electrónico. 😕
+                            No existe ningún admin con ese correo electrónico. 😕
                         </div>
                         <?php
                         

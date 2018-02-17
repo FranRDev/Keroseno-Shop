@@ -1,4 +1,5 @@
 <?php
+session_start();
 # CONSTANTES #
 define("INDEX","index.php");
 ?>

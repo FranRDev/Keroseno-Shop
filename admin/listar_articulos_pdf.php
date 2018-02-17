@@ -1,10 +1,10 @@
 <?php
-require('../res/fpdf/fpdf.php');
+require('res/fpdf/fpdf.php');
 
 class PDF extends FPDF {
     // Cabecera de página
     function Header() {
-        $title = "Keroseno Shop - Tu tienda de cine online";
+        $title = "Keroseno Shop - Tu tienda de cine  y series online";
 
         // Arial bold 15
         $this->SetFont('Arial','B',15);
@@ -94,7 +94,7 @@ $pdf->SetFont('Arial','',12);
 // Títulos de las columnas
 $header = array('ID', 'Nombre', 'Existencias', 'Precio', 'Descripcion', 'Subfamilia');
 // Carga de datos
-include '../../datos_bd.php';
+include '../datos_bd.php';
 $enlace = mysqli_connect(SERVIDOR, USUARIO, CLAVE, BASE_DE_DATOS);
 
 // Si hay error de conexión.
