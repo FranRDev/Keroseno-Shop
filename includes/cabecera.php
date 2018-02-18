@@ -11,7 +11,10 @@
 
     <!-- CSS -->
     <link href="res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="res/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="res/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="res/css/shop-homepage.css" rel="stylesheet">
+    <link href="res/css/sb-admin.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     <style type="text/css">
@@ -37,6 +40,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .paginacion-centro {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .product_view .modal-dialog{
             max-width: 800px;
             width: 100%;
@@ -57,5 +65,9 @@
         }
         .titulo_busqueda {
             padding-top: 28px;
+        }
+        .centrar {
+            display: flex;
+            justify-content: center;
         }
     </style>

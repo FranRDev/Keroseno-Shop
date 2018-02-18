@@ -31,8 +31,8 @@
                             
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 
-                                <a class="dropdown-item" href="carrito.php"><i class="fa fa-shopping-cart"></i> Carrito</a>
-                                <a class="dropdown-item" href="registro_facturas.php"><i class="fa fa-file-text"></i> Registro de facturas</a>
+                                <a class="dropdown-item" href="carro_ver.php"><i class="fa fa-shopping-cart"></i> Carrito</a>
+                                <a class="dropdown-item" href="factura_registro.php"><i class="fa fa-file-text"></i> Registro de facturas</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="desconectar.php"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
                             </div>

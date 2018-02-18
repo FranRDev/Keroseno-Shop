@@ -8,6 +8,7 @@ $enlace = mysqli_connect(SERVIDOR, USUARIO, CLAVE, BASE_DE_DATOS);
 
 // Se comprueba la conexión a la BD, si falla termina.
 if (mysqli_connect_errno()) {
+    header('Location: index.php');
     exit();
 }
 

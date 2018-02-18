@@ -35,21 +35,21 @@ extract($_REQUEST);
                     exit();
                 }
                 
-                $genero = mysqli_real_escape_string($enlace, $genero);
+                $subgenero = mysqli_real_escape_string($enlace, $subgenero);
                 
-                $consulta1 = "SELECT A.ID, A.NOMBRE, A.FOTO, A.STOCK, A.PRECIO, A.DESCRIPCION, A.DESCRIPCION, F.DESCRIPCION FROM ARTICULO AS A, FAMILIA AS F, SUBFAMILIA AS SF WHERE A.ID_SUBFAMILIA = SF.ID AND SF.ID_FAMILIA = F.ID AND F.ID = ".$genero;
+                $consulta1 = "SELECT A.ID, A.NOMBRE, A.FOTO, A.STOCK, A.PRECIO, A.DESCRIPCION, A.DESCRIPCION FROM ARTICULO AS A, SUBFAMILIA AS SF WHERE A.ID_SUBFAMILIA = SF.ID AND SF.ID = ".$subgenero;
                 $resultado1 = mysqli_query($enlace, $consulta1);
                 $total_registros = mysqli_num_rows($resultado1);
                 
-                $consulta_nombre = "SELECT DESCRIPCION FROM FAMILIA WHERE ID = ".$genero;
-                $resultado_nombre_genero = mysqli_query($enlace, $consulta_nombre);
-                $nombre_genero = mysqli_fetch_row($resultado_nombre_genero)[0];
+                $consulta_nombre = "SELECT DESCRIPCION FROM SUBFAMILIA WHERE ID = ".$subgenero;
+                $resultado_nombre_subgenero = mysqli_query($enlace, $consulta_nombre);
+                $nombre_subgenero = mysqli_fetch_row($resultado_nombre_subgenero)[0];
                 
                 //$nombre_genero = mysqli_fetch_row($resultado1)[7];
                 ?>
                 
                 <div class="titulo_busqueda">
-                    <h2><?php echo $nombre_genero ?></h2><hr>
+                    <h2><?php echo $nombre_subgenero ?></h2><hr>
                 </div>
                 
                 <!-- Productos -->
@@ -178,7 +178,7 @@ extract($_REQUEST);
                                 if ($pagina > 1) {
                                     ?>
                                     <li class="page-item">
-                                        <a class="page-link" href="<?php echo('busqueda_genero.php?genero='.$genero.'&pagina='.($pagina - 1)) ?>" aria-label="Previous">
+                                        <a class="page-link" href="<?php echo('busqueda_genero.php?genero='.$subgenero.'&pagina='.($pagina - 1)) ?>" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                             <span class="sr-only">Previous</span>
                                         </a>
@@ -200,7 +200,7 @@ extract($_REQUEST);
                                 while ($contador <= $total_paginas) {
                                     if ($contador == $pagina) {
                                         echo('<li class="page-item active">');
-                                            echo('<a class="page-link" href="busqueda_genero.php?genero='.$genero.'&pagina='.$contador.'">'.$contador.' <span class="sr-only">(current)</span></a>');
+                                            echo('<a class="page-link" href="busqueda_genero.php?genero='.$subgenero.'&pagina='.$contador.'">'.$contador.' <span class="sr-only">(current)</span></a>');
                                         echo('</li>');
                                     $contador++;
                                         
@@ -213,7 +213,7 @@ extract($_REQUEST);
                                 if ($pagina < $total_paginas) {
                                     ?>
                                     <li class="page-item">
-                                        <a class="page-link" href="<?php echo('busqueda_genero.php?genero='.$genero.'&pagina='.($pagina + 1)) ?>" aria-label="Next">
+                                        <a class="page-link" href="<?php echo('busqueda_genero.php?genero='.$subgenero.'&pagina='.($pagina + 1)) ?>" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                             <span class="sr-only">Next</span>
                                         </a>

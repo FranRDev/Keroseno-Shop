@@ -1,5 +1,6 @@
 <?php
 session_start();
+extract($_REQUEST);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -73,17 +74,34 @@ session_start();
                     
                     if (!mysqli_connect_errno()) {
                         // Se obtienen todos los artículos.
-                        $consulta = "SELECT * FROM ARTICULO ORDER BY ID DESC";
-                        $resultado = mysqli_query($enlace, $consulta);
+                        $consulta1 = "SELECT * FROM ARTICULO ORDER BY ID DESC";
+                        $resultado1 = mysqli_query($enlace, $consulta1);
+                        $total_registros = mysqli_num_rows($resultado1);
 
                         // Si hay resultado.
-                        if ($resultado) {
+                        if ($total_registros > 0) {
                             
-                            $numeroRegistros=mysqli_num_rows($res);
-                            if ($numeroRegistros <=0 ) {
+                            // Se define el límite de los resultados por página.
+                            $tamanho_pagina = 9;
+
+                            // Si la variable página no existe, se inicializa.
+                            if (!$pagina) {
+                                $inicio = 0;
+                                $pagina = 1;
+
+                            } else {
+                                $inicio = ($pagina - 1) * $tamanho_pagina;
+                            }
+
+                            // Se calcula el total de páginas.
+                            $total_paginas = ceil($total_registros / $tamanho_pagina);
+
+                            // Se construye la consulta.
+                            $consulta2 = $consulta1." LIMIT ".$inicio.",".$tamanho_pagina;
+                            $resultado2 = mysqli_query($enlace, $consulta2);
                             
                             // Mientras haya filas.
-                            while ($fila = mysqli_fetch_row($resultado)) {
+                            while ($fila = mysqli_fetch_row($resultado2)) {
                                 $id = $fila[0];
                                 $nombre = $fila[1];
                                 $poster = $fila[2];
@@ -92,6 +110,12 @@ session_start();
                                 $descripcion = $fila[5];
                                 $id_subfamilia = $fila[6];
                                 
+                                if (isset($_SESSION['usuario'])) {
+                                    $enlace_carrito = "carro_agregar.php?art=".$id."&precio=".$precio;
+                                    
+                                } else {
+                                    $enlace_carrito = "formulario_identificacion.php";
+                                }
                                 ?>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
@@ -105,7 +129,7 @@ session_start();
                                         
                                         <div class="card-footer">
                                             <div class="btn-ground text-center">
-                                                <button type="button" class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+                                                <a href="<?php echo $enlace_carrito ?>" role="button" class="btn btn-danger"><i class="fa fa-cart-plus"></i></a>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#vista_<?php echo $id ?>"><i class="fa fa-search"></i></button>
                                             </div>
                                         </div>
@@ -149,7 +173,7 @@ session_start();
                                                     <h5><?php echo $stock ?> unidades</h5><br>
 
                                                     <div class="btn-ground">
-                                                        <button type="button" class="btn btn-danger"><i class="fa fa-cart-plus"></i> Añadir al carrito</button>
+                                                        <a href="<?php echo $enlace_carrito ?>" role="button" class="btn btn-danger"><i class="fa fa-cart-plus"></i>  Añadir al carrito</a>
                                                     </div>
                                                     
                                                     <div class="space-ten"></div>
@@ -166,12 +190,78 @@ session_start();
                                 </div>
                                 <?php
                             }
-                                
-                            mysqli_free_result($resultado); 
-                            mysqli_close($consulta);
+                            
+                            mysqli_free_result($resultado1);
+                            mysqli_free_result($resultado2);
+                            mysqli_close($enlace);
+                            
+                            ?>
+                            <div class="col-lg-12 col-md-12 mt-4 clearfix">
+                                <ul class="pagination pagination-lg justify-content-center">
+                                    <?php
+                                    if ($pagina > 1) {
+                                        ?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="<?php echo('index.php?pagina='.($pagina - 1)) ?>" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <?php
+                                    }
+
+                                    $contador = 1;
+
+                                    while ($contador <= $total_paginas) {
+                                        if ($contador == $pagina) {
+                                            echo('<li class="page-item active">');
+                                                echo('<a class="page-link" href="index.php?pagina='.$contador.'">'.$contador.' <span class="sr-only">(current)</span></a>');
+                                            echo('</li>');
+                                        $contador++;
+
+                                        } else {
+                                            echo('<li class="page-item"><a class="page-link" href="index.php?pagina='.$contador.'">'.$contador.'</a></li>');
+                                        $contador++;
+                                        }
+                                    }
+
+                                    if ($pagina < $total_paginas) {
+                                        ?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="<?php echo('index.php?pagina='.($pagina + 1)) ?>" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                        <?php
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                            <?php
                             
                         } else {
-                            
+                            ?>
+                            <p>No hay resultados.</p>
+                            <?php
                         }
                     }
                     ?>

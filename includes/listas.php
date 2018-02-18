@@ -46,7 +46,7 @@
             if (!mysqli_connect_errno()) {
 
                 // Se obtienen todas las familias.
-                $consulta = "SELECT DESCRIPCION FROM SUBFAMILIA";
+                $consulta = "SELECT ID, DESCRIPCION FROM SUBFAMILIA";
                 $resultado = mysqli_query($enlace, $consulta);
 
                 // Si hay resultado.
@@ -57,7 +57,7 @@
 
                         // Se imprime la fila.
                         ?>
-                        <a href="#" class="list-group-item"><?php echo $fila[0] ?></a>
+                        <a href="busqueda_subgenero.php?subgenero=<?php echo $fila[0] ?>" class="list-group-item"><?php echo $fila[1] ?></a>
                         <?php
                     }
                 }
